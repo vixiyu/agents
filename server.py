@@ -38,7 +38,7 @@ client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 app = FastAPI(title="Email Tone Formatter API")
 
 class Flags(BaseModel):
-    shorten: bool = True
+    shorten: bool = False
     subject_lines: bool = True
     more_warm: bool = False
     more_firm: bool = False
