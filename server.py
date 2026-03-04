@@ -87,11 +87,10 @@ def rewrite(req: RewriteRequest):
         "constraints": constraints,
         "include_subjects": req.flags.subject_lines,
         "output_schema": {
-            "subjects": "3 subject lines (or empty list if include_subjects is false)",
+            "subjects": "2 subject lines (or empty list if include_subjects is false)",
             "versions": [
                 {"label": "Option A", "body": "string"},
                 {"label": "Option B", "body": "string"},
-                {"label": "Option C", "body": "string"},
             ],
             "notes": ["string", "string"],
         },
@@ -104,6 +103,7 @@ def rewrite(req: RewriteRequest):
             {"role": "user", "content": json.dumps(payload)},
         ],
         temperature=0.4,
+        max_tokens=800,
     )
 
     try:
